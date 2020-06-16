@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 style="margin: 0px;">Update Subject</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="/department/updateSub" method="POST">
+                        <input type="hidden" name="sub_id" value="<%=sub_data._id%>">
+                        <div class="form-group">
+                            <label for="sub_name">Subject</label>
+                            <input type="text" name="sub_name" value="<%=sub_data.sub_name%>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="sem">Semester/Year</label>
+                            <select name="sem" class="form-control">
+                                <%for(i=1;i <= course_data.num_year_sem;i++){%>
+                                <option value="<%=i%>" <%if(sub_data.sem == i){%> selected <%}%> >
+                                    <%if(course_data.yearly){%> Year <%}else{%> Semester <%}%> - 
+                                        <%=i%> </option>
+                                    <%}%>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-success btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

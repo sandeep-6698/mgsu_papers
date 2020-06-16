@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 style="margin: 0;">Paper List</h3>
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <% if(data[0]){%>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Semester/Year</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <% count=1 %>
+                    <% data.forEach(data=>{%>
+                    <tr>
+                        <td><%= count++ %></td>
+                        <td><%=data.sub_name%></td>
+                        <td><%if(yearly==1){%>Year<%}else{%>Semester<%}%> - <%=data.sem%></td>
+                        <td><a href="/department/updateSub/<%=data._id%>" title="update"><i class="fa fa-edit"
+                                    aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp; <a
+                                href="/department/delSub/<%=data._id%>" title="delete"
+                                onclick="return confirmDelSub();"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <%})%>
+                </table>
+            </div>
+            <% } else{%>
+            <p class="text-danger"><strong>Warning! </strong>Please add new subjects</p>
+            <%}%>
+        </div>
+    </div>
+</div>

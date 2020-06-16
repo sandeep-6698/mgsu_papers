@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 style="margin: 0px;">User Management</h4>
+        </div>
+        <div class="pane-body" style="padding: 20px;">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Date Created</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <% var count = 1; %>
+                    <% data.forEach(data=>{ %>
+                    <% var date = new Date(data.createdAt);%>
+                    <tr>
+                        <td><%= count++%></td>
+                        <td><%= data.username %></td>
+                        <td><%=`${date.getDate()} - ${date.getMonth()+1} - ${date.getFullYear()}` %></td>
+                        <%if(data.role){%>
+                        <td>Admin</td>
+                        <%} else {%>
+                        <td>Operator</td>
+                        <%}%>
+                    
+                   <%if(data.status){%>
+                        <td><i class="fa fa-circle" aria-hidden="true" style="color: #00ff00;"></i> Active</td>
+                        <%} else {%>
+                        <td><i class="fa fa-circle" aria-hidden="true" style="color: #ff3300;"></i> Inacive</td>
+                        <%}%>
+                   <td>
+                    <% if(locals.user._id == data._id){%>
+                        <a href="#" onclick="return false" title="you can not delete yourself"><i style="color: grey;"
+                                class="fa fa-trash-o" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+                        <% }else{%>
+                        <a href="/user/deleteUser/<%= data._id %>" title="delete" onclick="return confirmDel();"><i
+                                class="fa fa-trash-o" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+                        <% }%>
+                        <a href="/user/updateUser/<%= data._id %>" title="update"><i class="fa fa-edit"
+                                aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <%})%>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

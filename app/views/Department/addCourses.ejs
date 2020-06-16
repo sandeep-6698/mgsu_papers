@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-xl-6">
+                            <h4>Add New Courses</h3>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-xl-6"><a class="btn btn-default pull-right"
+                                href="/department/updateCourses/<%=dep_id%>">Update Courses</a></div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form action="/department/addCourses" method="POST">
+                        <div class="form-group">
+                            <label for="dep_name">Department</label>
+                            <select name="dep_id" class="form-control">
+                                <option value="<%=dep_id%>"><%=dep_name%></option>
+                            </select>
+                        </div>
+                        <!--Course panel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xl-6 pull-left">Courses</div>
+                                    <button class="btn btn-info pull-right" style="margin-right: .7em;"
+                                        id="addNewCourseBtn">Add New</button>
+                                </div>
+                            </div>
+                            <div class="panel-body" id="addNewCourse">
+                                <div class="course">
+                                    <div class="form-group">
+                                        <input type="text" name="course[0]" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <span>Yearly</span>
+                                            <label class="switch">
+                                                <input type="checkbox" name="course[0]" id="yearly" value="1">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input type="number" name="course[0]" class="form-control" id="num_year_sem"
+                                                placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Course panel end-->
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-success btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

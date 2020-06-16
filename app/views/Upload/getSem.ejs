@@ -1,0 +1,8 @@
+<option disabled selected>Choose Semester or Year</option>
+<% for(i=1;i <= course_data.num_year_sem;i++){%>
+<option value="<%=i%>" class="sem">
+    <%if(course_data.yearly){%>
+    Year<%}else{%>Semester<%}%> - 
+    <%=i%>
+</option>
+<%}%>

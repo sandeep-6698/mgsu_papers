@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 style="margin: 0px;">Update Courses</h4>
+                </div>
+                <div class="panel-body">
+                    <% if(data[0]){%>
+                    <form action="/department/updateCourses" method="POST">
+                        <!--Course panel-->
+                        <input type="hidden" name="dep_id" value="<%=data[0].dep_id%>">
+                        <div class="panel panel-default">
+                            <% count=0 %>
+                            <% data.forEach(course=>{%>
+                            <% if(course.yearly){%>
+                            <%yearly = 1%>
+                            <% } else{%>
+                            <% yearly = 0%>
+                            <%}%>
+                            <div class="panel-body" id="addNewCourse">
+
+                                <div class="course">
+                                    <div class="row" style="margin-bottom: .5em;">
+                                        <a href="/department/subList/<%=yearly%>/<%=course._id%>" class="btn
+                            btn-warning btn-xs"
+                            style="margin-left: 1.4em;" id="addNewSubBtn">Update Subject</a>
+                            <a href="/department/addSub/<%=yearly%>.<%=course.num_year_sem%>/<%=course._id%>"
+                                class="btn btn-info btn-xs" style="margin-left: .3em;" id="addNewSubBtn">New Subject</a>
+                        </div>
+                        <input type="hidden" name="course[<%=count%>]" value="<%=course._id%>">
+                        <div class="form-group">
+                            <input type="text" name="course[<%=count%>]" value="<%=course.course_name%>"
+                                class="form-control">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span id="switch_title">Yearly</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="course[<%=count%>]" id="yearly" value="1"
+                                        <% if(course.yearly){%> checked<%}%>
+                                                    >
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input type="number" name="course[<%=count%>]"
+                                        value="<%=course.num_year_sem%>" class="form-control" id="num_year_sem"
+                                        placeholder="">
+                            </div>
+                            <div class="pull-right" style="margin-top: 10px;margin-right: 10px;">
+                                <a href="/department/delCourse/<%=course._id%>" class="text-danger"
+                                    onclick="return confirmDelCourse();">Delete</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <hr>
+            <% count ++%>
+            <%})%>
+            <!--Course panel end-->
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success btn-block">
+            </div>
+        </div>
+        </form>
+        <% } else {%>
+        <div class="panel-body">
+            <p class="text-danger"><strong>Warning! </strong>Please add new courses</p>
+        </div>
+        <% }%>
+    </div>
+</div>
+</div>
+</div>
+</div>

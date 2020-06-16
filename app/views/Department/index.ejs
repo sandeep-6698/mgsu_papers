@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-xl-6">
+                    <h3>Department Management</h3>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-xl-6"><a class="btn btn-default pull-right"
+                        href="/department/addDepartment">Add New</a></div>
+            </div>
+        </div>
+        <div class="panel-body" style="padding: 20px;">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th></th>
+                        <th>Department</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                    <%
+                count=1
+                dep_data.forEach(data=>{%>
+                    <tr>
+                        <td><%=count++%></td>
+                        <td style="text-align: right;"><img src="/images/<%=data.dep_img%>" height="50" width="50"
+                                style="border-radius: 10%;"></td>
+                        <td><%=data.dep_name%></td>
+                        <td><%= data.dep_descript?data.dep_descript:"No Description"%></td>
+                        <td><a href="/department/addCourses/<%=data.dep_name%>/<%=data._id%>" title="update"><i
+                                    class="fa fa-edit" aria-hidden="true"></i></a> &nbsp;&nbsp;&nbsp; <a
+                                href="/department/delDep/<%=data._id%>" title="delete"
+                                onclick="return confirmDelDep();"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <% })%>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

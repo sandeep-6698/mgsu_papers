@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 style="margin: 0px;">Add New Subjects</h4>
+                </div>
+                <div class="panel-body">
+                    <form action="/department/addSub" method="POST" id="addSubForm">
+                        <input type="hidden" name="course_id" value="<%=id%>">
+                        <%count=0%>
+                        <%for(i=1;i <= num_year_sem;i++){%>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                    <h3><%if(yearly==1){%>
+                                        Year
+                                        <%} else{%>
+                                        Semester
+                                        <%}%>
+                                        <%=i%></h3>
+                                </div>
+                                <div class="col-md-6 col-xs-6 col-sm-6" style="margin-top:.9em;"><a href="#"
+                                        class="btn btn-sm btn-warning pull-right" name="<%=count%>"
+                                        onclick=" return addSub(this)">Add
+                                        More</a></div>
+                            </div>
+                            <input type="text" name="sub[<%=count%>]" class="form-control">
+                            <input type="text" name="sub[<%=count%>]" class="form-control">
+                            <input type="text" name="sub[<%=count%>]" class="form-control">
+                            <input type="text" name="sub[<%=count%>]" class="form-control">
+                        </div>
+                        <%count++%>
+                        <%}%>
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-success btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

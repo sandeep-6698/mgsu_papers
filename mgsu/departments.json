@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d4"},"dep_name":"Computer Science","dep_img":"cs.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d5"},"dep_name":"Microbiology","dep_img":"micro.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d6"},"dep_name":"Yoga Science","dep_img":"ys.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d7"},"dep_name":"Envirnment Science","dep_img":"es.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d8"},"dep_name":"History","dep_img":"history.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42d9"},"dep_name":"Law","dep_img":"law.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42da"},"dep_name":"English","dep_img":"english.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42db"},"dep_name":"Library and Informatic Science","dep_img":"lis.jpeg","dep_descript":""}
+{"_id":{"$oid":"5e67e799857ae71ab0ed42dc"},"dep_name":"Other","dep_img":"other.jpeg","dep_descript":""}

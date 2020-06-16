@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-4 col-sm-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+                <h3 style="margin: 0;">Download Paper</h3>
+            </div>
+            <div class="panel-body" style="padding: 20px;">
+                <form action="/download/downloadPaper" method="POST">
+                    <div class="form-group">
+                        <label for="course_name">Course</label>
+                        <select name="course_id" class="form-control" id="course_name">
+                            <option selected disabled>Choose Course</option>
+                            <% course_data.forEach(data=>{ %>
+                            <option value="<%=data._id%>" class="course_id"><%=data.course_name%></option>
+                            <% })%>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sem">Semester/Year</label>
+                        <select name="sem" class="form-control" id="sem">
+                            <option selected disabled> Choose Semester or Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <select name="year" class="form-control" id="year">
+                            <% var date = new Date();%>
+                            <option><%= date.getFullYear()%></option>
+                            <option><%= date.getFullYear()-1%></option>
+                            <option><%= date.getFullYear()-2%></option>
+                            <option><%= date.getFullYear()-3%></option>
+                            <option><%= date.getFullYear()-4%></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Download">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

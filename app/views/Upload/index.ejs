@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-4 col-sm-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+                <h3 style="margin: 0;">Upload Paper</h3>
+            </div>
+            <div class="panel-body" style="padding: 20px;">
+                <form action="/upload/submitPaper" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="dep_name">Department</label>
+                        <select class="form-control" id="dep_name" required>
+                            <option selected disabled>Choose Department</option>
+                            <%dep_data.forEach(data=>{%>
+                            <option value="<%=data._id%>" class="dep_id"><%=data.dep_name%></option>
+                            <% })%>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="course_name">Course</label>
+                        <select class="form-control" id="course_name" required>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sem">Semester/Year</label>
+                        <select name="sem" class="form-control" id="sem" required>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sub_name">Subject</label>
+                        <select name="sub_id" class="form-control" id="sub_name" required>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <select name="year" class="form-control" id="year" required>
+                            <option disabled selected required>Choose Year</option>
+                            <% var date = new Date();%>
+                            <option><%= date.getFullYear()%></option>
+                            <option><%= date.getFullYear()-1%></option>
+                            <option><%= date.getFullYear()-2%></option>
+                            <option><%= date.getFullYear()-3%></option>
+                            <option><%= date.getFullYear()-4%></option>
+                        </select>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" accept="application/pdf" class="form-control" name="paper_name">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Upload">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
